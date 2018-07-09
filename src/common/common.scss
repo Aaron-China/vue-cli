@@ -1,0 +1,63 @@
+//变量池   
+$btn-color: '#EEAB1A';
+
+html,body {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    //公共标题栏
+    .f-title{
+        width: 100%;
+        height: 45px;
+        text-align: center;
+        line-height: 45px;
+        border-bottom: 1px solid gainsboro;
+        span{
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            float: left;
+            position: absolute;
+            top: 11px;
+            left: 10px;
+            background-image: url(../../static/back.png);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+    }
+    //公共提示弹出层
+    .f-alert{
+        width: 80%;
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+        background-color: rgba(0,0,0,0.6);
+        color: white;
+        font-size: 1.1rem;
+        position: fixed;
+        top: 42%;
+        left: 50%;
+        margin-left: -40%;
+        border-radius: 45px;
+    }
+    //公共输入提示语样式
+    input::-webkit-input-placeholder{ 
+        color: #6E6E6E;
+        font-size: 0.9rem;
+    } 
+    input:-moz-placeholder{ 
+        color: #6E6E6E; 
+        font-size: 0.9rem;
+    } 
+    input::-moz-placeholder{ 
+        color: #6E6E6E; 
+        font-size: 0.9rem;
+    } 
+    input:-ms-input-placeholder{ 
+        color: #6E6E6E; 
+        font-size: 0.9rem;
+    }
+}
+
