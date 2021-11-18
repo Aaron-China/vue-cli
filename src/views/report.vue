@@ -3,9 +3,9 @@
     <div class="list-box">
       <table-search-model :formList="formList" @onSearch="writeTable">
         <div slot="tool-left">
-          <a-button class="n-btn" @click="add" >新增</a-button>
-          <a-button class="d-btn" style="margin-left: 15px;" @click="deleteM" >批量删除</a-button>
-          <a-button class="n-btn" style="margin-left: 15px;" @click="exportE">导出</a-button>
+          <a-button v-if="auth.add" class="n-btn" @click="add" >新增</a-button>
+          <a-button v-if="auth.delete" class="d-btn" style="margin-left: 15px;" @click="deleteM" >批量删除</a-button>
+          <a-button v-if="auth.export" class="n-btn" style="margin-left: 15px;" @click="exportE">导出</a-button>
         </div>
       </table-search-model>
       <c-table
@@ -101,7 +101,7 @@ export default {
           width: 70,
           align: 'center',
           customRender: (text, record) => {
-            return (<a onClick={() => this.edit(record) }>编辑</a>)
+            return this.auth.edit ? (<a onClick={() => this.edit(record) }>编辑</a>) : ''
           }
         },
       ],
@@ -142,6 +142,7 @@ export default {
   computed: {
     ...mapState({
       factoryList: state => state.app.factoryList,
+      auth: state => state.app.auth[window.location.pathname] || {}
     })
   },
   created() {
