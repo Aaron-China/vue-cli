@@ -49,7 +49,9 @@ export default {
             if(auth[item.path]) {
               auth[item.path][item.key] = true
             } else {
-              auth[item.path] = {}
+              auth[item.path] = {
+                [item.key]: true
+              }
             }
           })
           this.$store.commit('app/setUser', {
